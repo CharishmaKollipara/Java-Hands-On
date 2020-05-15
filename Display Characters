@@ -1,0 +1,71 @@
+Question
+
+
+
+
+
+Rohan wants a magic board, which displays a character for a corresponding number for his science exhibition. Help him to develop such application. 
+
+For example when the digits 65,66,67,68 are entered, the alphabet ABCD are to be displayed.
+
+[Assume the number of inputs should be always 4 ]
+
+Sample Input 1:
+Enter the digits:
+65
+66
+67
+68
+
+Sample Output 1:
+65-A
+66-B
+67-C
+68-D
+
+
+
+Sample Input 2: 
+Enter the digits:
+115
+116
+101
+112
+
+
+Sample Output 2:
+
+115-s
+116-t
+101-e
+112-p
+
+
+
+
+
+AsciValue.java
+
+
+import java.util.*;
+public class AsciValue {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the digits:");
+		int input1,input2,input3,input4;
+		input1 = sc.nextInt();
+		input2 = sc.nextInt();
+		input3 = sc.nextInt();
+		input4 = sc.nextInt();
+		char res1 = (char)input1;
+		char res2 = (char)input2;
+		char res3 = (char)input3;
+		char res4 = (char)input4;
+		System.out.println(input1 + "-" + res1);
+		System.out.println(input2 + "-" + res2);
+		System.out.println(input3 + "-" + res3);
+		System.out.println(input4 + "-" + res4);
+	}
+
+}
