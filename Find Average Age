@@ -1,0 +1,112 @@
+Question
+
+
+
+Find Average Age
+
+
+One of the least Insurance agencies recruited employees for their collection department. Now the HR needs a report as the average age of all the employees working in that department. Write a code to calculate the average age.
+
+Implement a method "calculateAverage(int[] age)" to calculate the average age and return the result to the caller function. 
+
+Note : 
+Age limit should be minimum of 28 years and maximum of 40 years. 
+Minimum of 2 employees is mandatory to calculate average age, if fails, the output should be "Please enter a valid employee count"
+If any of the age is invalid, terminate the process and display "Invalid age encountered!"
+Refer the sample given for read and display the output.
+
+Sample Input 1:
+
+Enter total no.of employees:
+
+3
+
+Enter the age for 3 employees:
+
+30
+
+31
+
+32
+
+Sample Output 1:
+
+The average age is 31.00
+
+
+
+
+Sample Input 2:
+
+Enter total no.of employees:
+
+2
+
+Enter the age for 2 employees:
+
+29
+
+36
+
+Sample Output 2:
+
+The average age is 32.50
+
+
+
+
+Sample Input 3:
+
+Enter total no.of employees:
+
+1
+
+Sample Output 3:
+
+Please enter a valid employee count
+
+
+
+Test.java
+
+
+import java.util.*;
+public class Test {
+	public static float calculateAverage(int[] age){
+		int i;
+		float ave_age,age_data = 0;
+		for(i = 0;i < age.length;i++)
+		{
+			age_data = age_data + age[i];
+		}
+		ave_age = age_data / age.length;
+		return ave_age;
+	}
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	int no_of_employees,i;
+	float age_average;
+	System.out.println("Enter total no.of employees:");
+	no_of_employees = sc.nextInt();
+	if(no_of_employees <= 1)
+		System.out.println("Please enter a valid employee count");
+	else
+	{
+		int[] employee_age = new int[no_of_employees];
+		System.out.println("Enter the age for " + no_of_employees + " employees:");
+		for(i = 0;i < employee_age.length;i++)
+		{
+			employee_age[i] = sc.nextInt();
+			if(employee_age[i] <= 0 | (employee_age[i] <= 28 | employee_age[i] >= 40))
+			{
+				System.out.println("Invalid age encountered!");
+				System.exit(0);
+			}
+				
+		}
+		age_average = calculateAverage(employee_age);
+		System.out.printf("The average age is %.2f",age_average);
+	}
+	}
+
+}
