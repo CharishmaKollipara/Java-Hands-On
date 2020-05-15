@@ -1,0 +1,88 @@
+Question
+
+
+InitCap
+
+
+Write a program to convert the first character of each word in a sentence to uppercase.
+
+If the first character of each word in the given sentence is already in upper case, then print "First character of each word is already in uppercase".
+
+Sample Input 1: 
+Enter the String:
+Work hard to get what you like
+
+Sample Output 1:
+
+Work Hard To Get What You Like
+
+Sample Input 2:
+Enter the String:
+Work Hard To Get What You Like
+
+Sample Output 2:
+
+First character of each word is already in uppercase
+
+
+
+InitCap.java
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+ 
+public class InitCap {
+ 
+                public static void main(String[] args) throws IOException {
+                                
+                                BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+                                int c=0,flag=0;
+                                System.out.println("Enter the String:");
+                                String str=br.readLine();
+                                
+                                String str1=str;
+                                String[] sp=str.split(" ");
+                                String[] sp1=str1.split(" ");
+                                
+                                for(int i=0;i<sp1.length;i++)
+                                {
+                                                char[] array1 = sp1[i].toCharArray();
+                                                if(Character.isUpperCase((sp[i].charAt(0))))
+                                                                                {
+                                                                flag++;
+                                                
+                                                                                }
+                                }
+                
+                                for(int i=0;i<sp.length;i++)
+                                {
+                                                char[] array = sp[i].toCharArray();
+                                                
+                                                
+                                                                
+                                                                 array[0] = Character.toUpperCase(array[0]);
+                                                                
+                                                                
+                                
+                                
+                                                if(flag==sp.length)
+                                                {
+                                                                System.out.println("First character of each word is already in uppercase");
+                                                                break;
+                                                }
+                                                else
+                                                {
+                                                                for(int j=0;j<array.length;j++)
+                                                                                System.out.print(array[j]);
+                                                                System.out.print(" ");
+                                                                
+                                                }
+                                
+                                                
+                                }
+                }
+ 
+}
