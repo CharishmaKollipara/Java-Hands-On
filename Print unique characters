@@ -1,0 +1,106 @@
+Question
+
+
+
+Print unique characters
+
+
+Write a program to print all the unique characters in a given sentence. 
+
+The sentence should have only alphabets .
+
+If the sentence is not valid display the message "Invalid Sentence".
+
+If unique characters are not found print "No unique characters".
+
+If unique characters are found print those characters as shown in sample output.
+
+Sample Input 1:
+Enter the sentence:
+java is an object oriented programming language
+
+Sample Output 1:
+Unique characters:
+v
+s
+b
+c
+d
+p
+l
+u
+
+Sample Input 2:
+Welcome to 12house
+
+Sample Output 2:
+Invalid Sentence
+
+
+UniqueChar.java
+
+
+
+import java.io.*;
+import java.util.*;
+class UniqueChar
+{
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the sentence:");
+        String str = sc.nextLine();
+        int count=0;
+        for (int i = 0; i < str.length(); i++) {
+            char c=str.charAt(i);
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c==' ')
+            {
+                continue;
+            }
+            else
+            {
+                System.out.println("Invalid Sentence");
+                count++;
+                break;
+            }
+        }
+        if(count==0)
+        {
+            ArrayList<String> arr=new ArrayList<String>();
+            String str1 = str.replaceAll("\\s", "");
+ 
+            for (int j = 0; j < str1.length(); j++) {
+                int count1=0;
+                for (int k = 0; k < str1.length(); k++) {
+                    if (j != k) {
+                        if (str1.charAt(j) == str1.charAt(k)) {
+                            count1++;
+                        }
+                    }
+                }
+                if(count1==0)
+                {
+                    String st=Character.toString(str1.charAt(j));
+                    arr.add(st);
+                }
+            }
+            if(arr.size()>0)
+            {
+                System.out.println("Unique characters:");
+                for(int i=0;i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i));
+                }
+            }
+            else
+            {
+                System.out.println("No unique characters");
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+ 
+ 
+}
