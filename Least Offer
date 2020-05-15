@@ -1,0 +1,142 @@
+Question
+
+
+
+Least offer
+Maya buys “N” no of products from a shop. The shop offers a different percentage of discount on each item. She wants to know the item that has the minimum discount offer, so that she can avoid buying that and save money.
+
+[Input Format: The first input refers to the no of items; the second input is the item name, price and discount percentage separated by comma(,)]
+
+Assume the minimum discount offer is in the form of Integer.
+
+Note: There can be more than one product with a minimum discount.
+
+Sample Input 1:
+
+4
+
+mobile,10000,20
+
+shoe,5000,10
+
+watch,6000,15
+
+laptop,35000,5
+
+Sample Output 1:
+
+shoe
+
+Explanation: the discount on the mobile is 2000, the discount on the shoe is 500, the discount on the watch is 900 and the discount on the laptop is 1750. So the discount on the shoe is the minimum.
+
+Sample Input 2:
+
+4
+
+Mobile,5000,10
+
+shoe,5000,10
+
+WATCH,5000,10
+
+Laptop,5000,10
+
+Sample Output 2:
+
+Mobile 
+
+shoe 
+
+WATCH 
+
+Laptop
+
+
+
+
+Main.java
+
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		ArrayList arr1 = new ArrayList();
+		ArrayList arr2 = new ArrayList();
+		ArrayList arr3 = new ArrayList();
+		ArrayList arr4 = new ArrayList();
+
+		String assign = new String();
+
+		int price = 0, dis = 0, i = 0, k = 0, j = 0;
+		int disamount = 0;
+		InputStreamReader s = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(s);
+		System.out.println("Enter the range:");
+		int r = Integer.parseInt(br.readLine());
+		String[] arr = new String[r];
+
+		String str1 = new String();
+		for (i = 0; i < r; i++) {
+
+			arr[i] = br.readLine();
+
+		}
+		for (i = 0; i < r; i++) {
+			str1 = arr[i];
+			String[] str = str1.split(",");
+			j = 0;
+			for (j = 0; j <= 3; j++) {
+
+				if (j == 0) {
+					arr1.add(str[j]);
+				}
+				if (j == 1) {
+					int p1 = Integer.parseInt(str[j]);
+
+					arr2.add(p1);
+				}
+				if (j == 2) {
+					int d1 = Integer.parseInt(str[j]);
+					arr3.add(d1);
+				}
+
+				if (j == 3) {
+					price = (int) arr2.get(k);
+
+					dis = (int) arr3.get(k);
+
+					disamount = (int) (price * (dis * 0.01));
+
+					arr4.add(disamount);
+					k++;
+				}
+
+			}
+		}
+		int min = (int) arr4.get(0);
+		int temp;
+		for (i = 0; i < arr4.size(); i++) {
+			temp = (int) arr4.get(i);
+			if (min > temp) {
+				min = temp;
+			}
+		}
+
+		for (i = 0; i < arr4.size(); i++) {
+			temp = (int) arr4.get(i);
+			if (temp == min) {
+				String xyz = (String) arr1.get(i);
+				System.out.println(xyz);
+			}
+		}
+	}
+}
